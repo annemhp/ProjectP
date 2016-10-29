@@ -1,4 +1,4 @@
-package com.senorita.skyblue.myapplication;
+package com.senorita.skyblue.lele;
 
 import org.junit.Test;
 

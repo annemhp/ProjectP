@@ -1,20 +1,13 @@
-package com.senorita.skyblue.myapplication;
+package com.senorita.skyblue.lele;
 
 import android.content.Context;
-import android.media.MediaPlayer;
-import android.os.Handler;
-import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -25,7 +18,7 @@ public class MainActivity extends AppCompatActivity {
     public static Timer timer ;
 
     public static TimerTask singer;
-    private CheckBox chkPk;
+    private ImageButton powerMode ;
     public static boolean isPkFan = false;
 
 
@@ -39,15 +32,14 @@ public class MainActivity extends AppCompatActivity {
 
 
     public void addListenerOnChkIos() {
-
-        chkPk = (CheckBox) findViewById(R.id.chkIos);
-
-        chkPk.setOnClickListener(new View.OnClickListener() {
+        powerMode = (ImageButton) findViewById(R.id.imageButton);
+        powerMode.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 //is chkIos checked?
-                if (((CheckBox) v).isChecked()) {
+                powerMode.setEnabled(false);
+                if (!isPkFan) {
                     isPkFan = true;
                     Toast.makeText(MainActivity.this,
                             "Power Mode Activated", Toast.LENGTH_LONG).show();
@@ -56,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(MainActivity.this,
                             "Power Mode DeActivated", Toast.LENGTH_LONG).show();
                 }
+                powerMode.setEnabled(true);
 
             }
         });
@@ -66,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
     public void sendMessage(View view) {
         // Do something in response to button
          Button testButton = (Button) findViewById(R.id.start);
+
         if(flag){
             flag=!flag;
             timer = new Timer();

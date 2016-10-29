@@ -1,4 +1,4 @@
-package com.senorita.skyblue.myapplication;
+package com.senorita.skyblue.lele;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;
