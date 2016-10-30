@@ -15,7 +15,7 @@ public class SongTimer extends TimerTask {
     private static Context context=null;
     private static ArrayList<MediaPlayer>  items , pkItems , finalList;
     private static  MediaPlayer  current=null;
-    public static boolean isPkFan = false;
+
     public static  int ind =0;
 
 
@@ -139,6 +139,13 @@ public class SongTimer extends TimerTask {
         if(ind==20){
             ind = 0;
         }
+
+        if(MainActivity.isPkFan){
+            finalList= pkItems;
+        }else{
+            finalList= items;
+        }
+
         current=    finalList.get(ind++);
         if(!current.isPlaying()) {
             current.start();
